@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-image: url("background2.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            }
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+        .cont {
+            position:relative;
+            left:600px;
+            top:50px;
+            color: white;
+            -webkit-text-stroke: 0.5px black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+    </div>
+    
+    <div class="cont">
+        <form method="POST"  action='/registration' autocomplete="off" name="registration_form" onclick="return validate1()">
+             Username: <br>
+            <input type="text" id="user" name="username">
+            <div id="username_error"><%=flag%></div>  <br>
+            Password: <br>
+            <input type="password" id="password" name="password" minlength="5">
+            <div id="password_error"></div> <br> <br>
+            <input type="submit" id="simple_click" class="btn btn-secondary" value="Register"> <br>
+        </form>
+    </div>
+
+    <script>
+        
+      function validate1(){
+      let username1 = document.getElementById("user");
+      let password1 = document.getElementById("password");
+      let username_error = document.getElementById("username_error");
+      let password_error = document.getElementById("password_error");
+      
+      if(username1.value==""){
+        username1.style.border = "1px solid red";
+        username_error.textContent = "username is required";
+        return false ;
+      }
+      if (username1.value!=""){
+        username1.style.border = "1px solid white";
+        username_error.textContent = "";
+      }
+      if(password.value==""){
+        password1.style.border = "1px solid red";
+        password_error.textContent = "password is required";
+        return false ;
+      }
+      if (password1.value!=""){
+        username1.style.border = "1px solid white";
+        password_error.textContent = "";
+      }
+      return true ;
+      }
+    
+    </script>
+
+
+</body>
+
+</html>
